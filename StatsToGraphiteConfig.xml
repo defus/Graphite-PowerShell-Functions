@@ -9,20 +9,49 @@
 		<SendUsingUDP>False</SendUsingUDP>
 	</Graphite>
 	<PerformanceCounters>
-		<Counter Name="\Network Interface(*)\Bytes Received/sec"/>
+		<!-- https://thwack.solarwinds.com/docs/DOC-171537 -->
+        	<Counter Name="\Interface réseau(*)\Octets reçus/s"/>
+		<Counter Name="\Interface réseau(*)\Paquets reçus/s"/>
+		<Counter Name="\Interface réseau(*)\Paquets monodiffusion envoyés/s"/>
+		<Counter Name="\Interface réseau(*)\Paquets non monodiffusion reçus/s"/>
+		<Counter Name="\Interface réseau(*)\Paquets non monodiffusion envoyés/s"/>
+		<Counter Name="\Processeur(*)\% temps processeur"/>
+		<Counter Name="\Mémoire\Mégaoctets disponibles"/>
+		<Counter Name="\Mémoire\Pages/s"/>
+		<Counter Name="\Mémoire\Pages en entrée/s"/>
+		<Counter Name="\Système\Longueur de la file du processeur"/>
+		<Counter Name="\Système\Threads"/>
+		<Counter Name="\Système\changements de contexte/s"/>
+		<Counter Name="\Disque physique(*)\Longueur moyenne de file d&#8217;attente écriture disque"/>
+		<Counter Name="\Disque physique(*)\pourcentage du temps de lecture du disque"/>
+		<Counter Name="\DirectoryServices(*)\nb d&#8217;objets dra entrants appliqués/s."/>
+		<Counter Name="\DirectoryServices(*)\nb de threads active directory utilisés"/>
+		<Counter Name="\DirectoryServices(*)\nb de threads ldap actifs"/>
+		<Counter Name="\DirectoryServices(*)\nb d&#8217;écritures ldap/s."/>
+		<Counter Name="\DirectoryServices(*)\lectures active directory/s."/>
+		<Counter Name="\DirectoryServices(*)\recherches ldap/s."/>
+		<Counter Name="\DirectoryServices(*)\nb de valeurs dra entrantes (noms uniques seulement)/s."/>
+		<Counter Name="\DirectoryServices(*)\nb de valeurs dra sortantes (noms uniques seulement)/s."/>
+		<Counter Name="\DirectoryServices(*)\opérations ldap udp/s."/>
+		<Counter Name="\DirectoryServices(*)\nb de liaisons ldap réussies/s."/>
+		<Counter Name="\DirectoryServices(*)\durée de liaison ldap"/>
+		<Counter Name="\DirectoryServices(*)\sessions client ldap"/>
+		<Counter Name="\DirectoryServices(*)\sessions client carnet d&#8217;adr."/>
+	        <!--
 		<Counter Name="\Network Interface(*)\Bytes Sent/sec"/>
-		<Counter Name="\Network Interface(*)\Packets Received Unicast/sec"/>
-		<Counter Name="\Network Interface(*)\Packets Sent Unicast/sec"/>
-		<Counter Name="\Network Interface(*)\Packets Received Non-Unicast/sec"/>
-		<Counter Name="\Network Interface(*)\Packets Sent Non-Unicast/sec"/>
-		<Counter Name="\Processor(_Total)\% Processor Time"/>
-		<Counter Name="\Memory\Available MBytes"/>
-		<Counter Name="\Memory\Pages/sec"/>
-		<Counter Name="\Memory\Pages Input/sec"/>
-		<Counter Name="\System\Processor Queue Length"/>
-		<Counter Name="\System\Threads"/>
-		<Counter Name="\PhysicalDisk(*)\Avg. Disk Write Queue Length"/>
-		<Counter Name="\PhysicalDisk(*)\Avg. Disk Read Queue Length"/>
+	        <Counter Name="\Network Interface(*)\Packets Received Unicast/sec"/>
+	        <Counter Name="\Network Interface(*)\Packets Sent Unicast/sec"/>
+	        <Counter Name="\Network Interface(*)\Packets Received Non-Unicast/sec"/>
+	        <Counter Name="\Network Interface(*)\Packets Sent Non-Unicast/sec"/>
+	        <Counter Name="\Processor(_Total)\% Processor Time"/>
+	        <Counter Name="\Memory\Available MBytes"/>
+	        <Counter Name="\Memory\Pages/sec"/>
+	        <Counter Name="\Memory\Pages Input/sec"/>
+	        <Counter Name="\System\Processor Queue Length"/>
+	        <Counter Name="\System\Threads"/>
+	        <Counter Name="\PhysicalDisk(*)\Avg. Disk Write Queue Length"/>
+	        <Counter Name="\PhysicalDisk(*)\Avg. Disk Read Queue Length"/>
+		-->
 	</PerformanceCounters>
 	<MetricCleaning>
 		<!-- These will be found and replaced in the order they appear here -->
