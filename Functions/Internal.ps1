@@ -175,34 +175,36 @@ function SendMetrics
                     foreach ($metricString in $Metrics)
                     {
                         $metricString = $metricString.Replace("é", "e");
-						$metricString = $metricString.Replace("è", "e");
-						$metricString = $metricString.Replace("ê", "e");
-						$metricString = $metricString.Replace("à", "a");
-						$metricString = $metricString.Replace("ù", "u");
-						$metricString = $metricString.Replace("û", "u");
-						$metricString = $metricString.Replace("ô", "o");
-						$metricString = $metricString.Replace("{", "_");
-						$metricString = $metricString.Replace("}", "_");
-						$metricString = $metricString.Replace("(", "_");
-						$metricString = $metricString.Replace(")", "_");
-						$metricString = $metricString.Replace("[", "_");
-						$metricString = $metricString.Replace("]", "_");
-						$metricString = $metricString.Replace("ç", "c");
-						
-						Write-Verbose "Cleaned metric : $($metricString)."
+			$metricString = $metricString.Replace("é", "e");
+			$metricString = $metricString.Replace("è", "e");
+			$metricString = $metricString.Replace("ê", "e");
+			$metricString = $metricString.Replace("à", "a");
+			$metricString = $metricString.Replace("ù", "u");
+			$metricString = $metricString.Replace("û", "u");
+			$metricString = $metricString.Replace("ô", "o");
+			$metricString = $metricString.Replace("{", "_");
+			$metricString = $metricString.Replace("}", "_");
+			$metricString = $metricString.Replace("(", "_");
+			$metricString = $metricString.Replace(")", "_");
+			$metricString = $metricString.Replace("[", "_");
+			$metricString = $metricString.Replace("]", "_");
+			$metricString = $metricString.Replace("ç", "c");
+			$metricString = $metricString.Replace("" + [char]8217, "_");
+			
+			Write-Verbose "Cleaned metric : $($metricString)."
 						
                         $Message += "$($metricString)`r"
                     }
                     $byte = $enc.GetBytes($Message)
                     $Sent = $udpobject.Send($byte,$byte.Length)
                 }
-				Finally
-				{
-					if ($udpobject -ne $null)
-					{
-						$udpobject.close()
-					}
-				}
+		Finally
+		{
+			if ($udpobject -ne $null)
+			{
+				$udpobject.close()
+			}
+		}
 
                 Write-Verbose "Sent via UDP to $($CarbonServer) on port $($CarbonServerPort)."
             }
@@ -215,22 +217,39 @@ function SendMetrics
                         PSUSing($writer = new-object System.IO.StreamWriter($stream)) {
                             foreach ($metricString in $Metrics)
                             {
+                            	$metricString = $metricString.Replace("é", "e");
+				$metricString = $metricString.Replace("è", "e");
+				$metricString = $metricString.Replace("ê", "e");
+				$metricString = $metricString.Replace("à", "a");
+				$metricString = $metricString.Replace("ù", "u");
+				$metricString = $metricString.Replace("û", "u");
+				$metricString = $metricString.Replace("ô", "o");
+				$metricString = $metricString.Replace("{", "_");
+				$metricString = $metricString.Replace("}", "_");
+				$metricString = $metricString.Replace("(", "_");
+				$metricString = $metricString.Replace(")", "_");
+				$metricString = $metricString.Replace("[", "_");
+				$metricString = $metricString.Replace("]", "_");
+				$metricString = $metricString.Replace("ç", "c");
+				$metricString = $metricString.Replace("" + [char]8217, "_");
+				
                                 $writer.WriteLine($metricString)
                             }
                             $writer.Flush()
+                            
                             Write-Verbose "Sent via TCP to $($CarbonServer) on port $($CarbonServerPort)."
                         }
                     }
                 }
                 Finally
-				{
-					if ($socket -ne $null)
-					{
-						$socket.close()
-					}
-				}
-				
-				Write-Verbose "Sent via TCP to $($CarbonServer) on port $($CarbonServerPort)."
+		{
+			if ($socket -ne $null)
+			{
+				$socket.close()
+			}
+		}
+		
+		Write-Verbose "Sent via TCP to $($CarbonServer) on port $($CarbonServerPort)."
             }
         }
         catch
