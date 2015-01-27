@@ -1,4 +1,4 @@
-# Graphite PowerShell Functions
+# Graphite PowerShell Functions with PowerShell 2.0 compatibility
 
 A group of PowerShell functions that allow you to send Windows Performance counters to a Graphite Server, all configurable from a simple XML file.
 
